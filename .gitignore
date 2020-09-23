@@ -7,3 +7,7 @@ vcap-local.js
 credentials.json
 localdev-config.json
 .nyc*
+test
+mongocfg
+mongo_statef_st
+config

@@ -1,10 +1,13 @@
 ---
 applications:
-- instances: 1
+- path: .
+  instances: 1
+  memory: 256M
   timeout: 180
-  name: ettienesmithcv
+  name: ettienesmith-cv
   buildpack: sdk-for-nodejs
   command: npm start
   random-route: true
+  disk_quota: 2048MB
   env:
     OPTIMIZE_MEMORY: true
