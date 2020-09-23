@@ -1,9 +1,9 @@
-const express = require('express')
+const express = require('express');
 
-const VehicleCtrl = require('../controllers/vehicle-controller')
+const VehicleCtrl = require('../controllers/vehicle-controller');
 
-const router = express.Router()
+const router = express.Router();
 
-router.post('/vehicle', VehicleCtrl.createVehicle)
+router.post('/vehicle', VehicleCtrl.createVehicle);
 
-module.exports = router
+module.exports = router;

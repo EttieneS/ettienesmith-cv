@@ -12,13 +12,9 @@ const createVehicle = (req, res) => {
 
   const vehicle = new Vehicle(body);
 
-  if (!vehicle) {
-    return res.status(400).json({ success: false,
-      error: 'no data to be saved' });
-  }
-
   vehicle.save(function(err) {
-    if (err) throw err + ' could not save';
+    if (err) throw err;
+    console.log('Vehicle successfully saved.');
   });
 };
 
