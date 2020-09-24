@@ -1,27 +1,18 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-
-import Logo from './Logo';
+import React, { Component } from "react";
 import Links from './Links';
-
-const Container = styled.div.attrs({className: 'container'});
-
-const Nav = styled.nav.attrs({
-      className: 'navbar navbar-expand-lg navbar-dark bg-dark'
-      , margin-bottom: 20 px;
-});
-
 class NavBar extends Component {
-    render() {
-        return (
-            <Container>
-                <Nav>
-                    <Logo />
-                    <Links />
-                </Nav>
-            </Container>
-        )
-    }
+  render() {
+    return (
+      <React.Fragment>
+        <nav className="navbar navbar-dark bg-dark mb-3">
+          <a className="navbar-brand" href="www.bonobo.com">
+            <h1>Total Items <span className="badge badge-secondary">{this.props.totalItems}</span></h1>
+
+          </a>
+        </nav>
+      </React.Fragment>
+    );
+  }
 }
 
 export default NavBar;
