@@ -1,8 +1,16 @@
-const mongoose = require('mongoose');
-const conn = 'mongodb+srv://ettienesmithcv:CjH1ro9aDyco1W7r@cluster0.' +
-  +'mhunj.gcp.mongodb.net/vehicles?retryWrites=true&w=majority';
+const MongoClient = require( 'mongodb' ).MongoClient;
+const url = 'mongodb+srv://ettienesmithcv:CjH1ro9aDyco1W7r@cluster0.mhunj.gcp.mongodb.net/vehicles?retryWrites=true&w=majority';
 
-mongoose.connect(conn, function(err) {
+var conn = new MongoClient.connect(url, function (err, client) {
   if (err) throw err;
+
+  var db = client.db('vehicles');
+
+  db.collection('vehicles').findOne({}, function (findErr, result) {
+    if (findErr) throw findErr;
+    console.log(result.type);
+    //client.close();
+  });
 });
-console.log('Successfully connected');
+
+export conn;
