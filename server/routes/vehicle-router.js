@@ -1,6 +1,6 @@
 const express = require('express');
 
-const VehicleCtrl = require('../controllers/vehicle-controller');
+const VehicleCtrl = require('../controllers/vehicle-ctrl');
 
 const router = express.Router();
 

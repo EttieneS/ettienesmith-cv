@@ -1,4 +1,4 @@
-const Vehicle = require('../models/vehicle');
+const Vehicle = require('../models/vehicle-model');
 
 const createVehicle = (req, res) => {
   const body = req.body;
@@ -20,4 +20,4 @@ const createVehicle = (req, res) => {
 
 module.exports = {
   createVehicle,
-};
+}
