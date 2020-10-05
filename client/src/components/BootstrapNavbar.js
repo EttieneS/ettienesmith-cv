@@ -5,14 +5,14 @@ import { Navbar,Nav,NavDropdown,Form,FormControl,Button } from 'react-bootstrap'
 // import Home from './Home';
 // import AboutUs from './AboutUs';
 // import ContactUs from './ContactUs';
-import { Vehicleslist } from '../views';
+import { VehiclesList } from '../views/vehicles';
 
 class BootstrapNavbar extends React.Component{
   render(){
     return(
       <div>
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-4">
             <Router>
               <Navbar bg="dark" variant="dark" expand="lg" sticky="top">
                 <Navbar.Brand href="#home">React Bootstrap Navbar</Navbar.Brand>
@@ -20,7 +20,7 @@ class BootstrapNavbar extends React.Component{
                 <Navbar.Collapse id="basic-navbar-nav">
                   <Nav className="mr-auto">
                   <Nav.Link href="/">Home</Nav.Link>
-                  <Nav.Link href="/vehicles/list">List</Nav.Link>
+                  <Nav.Link href="/vehicles">List</Nav.Link>
                   <Nav.Link href="/vehicles/create">Add Vehicles</Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">
                     <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
@@ -39,7 +39,10 @@ class BootstrapNavbar extends React.Component{
               <br />
               <Switch>
                 <Route exact path="/">
-                  Home
+                  Home bonobo
+                </Route>
+                <Route path="/vehicles" exact component={VehiclesList}>
+                  List bam bam
                 </Route>
                 <Route path="/contact-us">
                 </Route>

@@ -1,62 +1,39 @@
 import React from 'react';
+import ReactTable from 'react-table';
+import api from '../api';
+import styled from 'styled-components';
+//import 'react-table/react-table.css';
+
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { BootstrapNavbar, NavBar } from '../components';
+import { BootstrapNavbar, testbar} from '../components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { VehiclesList } from '../views/vehicles';
 import axios from 'axios';
-import DataTable from './data-table';
+//import DataTable from './data-table';
 
+//const Wrapper = styled.div('padding: 0 40px 40px 40px;');
 
-constructor(props) {
-  super(props);
-  this.state = { usersCollection: [] };
-}
-
-componentDidMount() {
-  axios.get('http://localhost:4000/users')
-    .then(res => {
-      this.setState({ usersCollection: res.data });
-    })
-      .catch(function (error) {
-        console.log(error);
-      })
-}
-
-render() {
+function App(){
   return (
-    <div className="wrapper-users">
-      <div className="container">
-        <table className="table table-striped table-dark">
-          <thead className="thead-dark">
-          <tr>
-            <td>ID</td>
-            <td>Make</td>
-          </tr>
-          </thead>
-          <tbody>
-            {this.dataTable()}
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <BootstrapNavbar />
   )
 }
-
-dataTable() {
-  return this.state.usersCollection.map((data, i) => {
-    return <DataTable obj={data} key={i} />;
-  });
-}
-
-function App() {
-  return (
-    <Router>
-      <BootstrapNavbar />
-      <Switch>
-        <Route path="/vehicles/list" exact component={VehiclesList} />
-      </Switch>
-    </Router>
-  );
-}
+// function App() {
+//   return (
+//     <Router>
+//       <NavBar />
+//     </Router>
+//   )
+// }
+// function App() {
+//   return (
+//     <Router>
+//       <BootstrapNavbar />
+//       <Switch>
+//         <Route path="/vehicles/list" exact component={VehiclesList} />
+//       </Switch>
+//     </Router>
+//   );
+// }
 
 export default App;

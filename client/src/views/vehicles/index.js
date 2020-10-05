@@ -1,4 +1,4 @@
-// import VehiclesList from 'VehiclesList';
-// import VehiclesInsert from 'VehiclesInsert';
-//
-// export { VehiclesList, VehiclesInsert };
+import VehiclesList from './VehiclesList';
+import VehiclesInsert from './VehiclesInsert';
+
+export { VehiclesList, VehiclesInsert };

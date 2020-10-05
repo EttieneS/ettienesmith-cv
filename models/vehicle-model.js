@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-const Schema = mongoose.vehicleSchema
+const Schema = mongoose.Schema;
 
 const Vehicle = new Schema(
   {
@@ -7,4 +7,4 @@ const Vehicle = new Schema(
   },
 )
 
-module.exports = mongoose.model('users', Vehicle)
+module.exports = mongoose.model('users', Vehicle);

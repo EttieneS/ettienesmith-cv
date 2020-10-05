@@ -3,17 +3,24 @@ const path = require('path');
 const db = require('./db');
 const bodyParser = require('body-parser');
 const MongoClient = require( 'mongodb' ).MongoClient;
+const router = express.Router();
+const cors = require('cors');
+
+const VehicleCtrl = require('./controllers/vehicle-ctrl');
 
 const app = express();
-const port = process.env.VCAP_APP_PORT || 8000;
+const port = process.env.VCAP_APP_PORT || 3000;
 
+app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
 app.all('', (req, res) => {
-  res.status(200).sendFile(path.join(__dirname, '../client/public', 'index.html'));
+  res.status(200).sendFile(path.join(__dirname, '../client/src', 'index.js'));
 });
+
+app.get('/vehicles', VehicleCtrl.getVehicles);
 
 // start node server
 app.listen(port, () => {
