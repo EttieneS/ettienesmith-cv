@@ -12,4 +12,5 @@ mongocfg
 mongo_statef_st
 config
 .data
-env
+.env
+.server
