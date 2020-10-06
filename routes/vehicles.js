@@ -7,7 +7,7 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
+router.route('/vehicle/add').post((req, res) => {
   const type = req.body.type;
   console.log( type );
   const newVehicle = new Vehicle({type});

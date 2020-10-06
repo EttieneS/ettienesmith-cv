@@ -4,7 +4,7 @@ const VehicleCtrl = require('../controllers/vehicle-ctrl');
 
 const router = express.Router();
 
-router.post('/create', VehicleCtrl.createVehicle);
-router.get('/', VehicleCtrl.getAllVehicles);
+router.post('/vehicles/create', VehicleCtrl.createVehicle);
+router.get('/vehicles/', VehicleCtrl.getAllVehicles);
 
 module.exports = router;

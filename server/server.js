@@ -3,9 +3,11 @@ const bodyParser = require('body-parser');
 require('dotenv').config();
 const cors = require('cors');
 
-const vehiclesRouter = require('../routes/vehicles.js');
 const port = process.env.VCAP_APP_PORT || 5000;
 const app = express();
+
+const vehiclesRouter = require('../routes/vehicles.js');
+const customersRouter = require('../routes/customers');
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -31,6 +33,7 @@ try {
 }
 
 app.use('/vehicles', vehiclesRouter);
+app.use('/customers', customersRouter);
 
 app.all('', (req, res) => {
   res.status(200).sendFile(path.join(__dirname, '../client/src', 'index.js'));
