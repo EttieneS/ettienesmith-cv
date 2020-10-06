@@ -11,4 +11,5 @@ test
 mongocfg
 mongo_statef_st
 config
-server/controllers/connection.js
+.data
+env

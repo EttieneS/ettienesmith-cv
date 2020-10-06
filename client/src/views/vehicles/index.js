@@ -1,4 +1,4 @@
-import VehiclesList from './VehiclesList';
-import VehiclesInsert from './VehiclesInsert';
+import VehiclesList from './VehiclesList.jsx';
+import VehiclesInsert from './VehiclesInsert.jsx';
 
 export { VehiclesList, VehiclesInsert };

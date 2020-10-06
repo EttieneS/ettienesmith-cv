@@ -18,7 +18,7 @@ const createVehicle = (req, res) => {
   });
 };
 
-getVehicles = async (req, res) => {
+const getAllVehicles = async (req, res) => {
   await Vehicle.find({}, (err, vehicles) => {
       if (err) {
           return res.status(400).json({ success: false, error: err })
@@ -34,5 +34,5 @@ getVehicles = async (req, res) => {
 
 module.exports = {
   createVehicle,
-  getVehicles,
+  getAllVehicles,
 }
