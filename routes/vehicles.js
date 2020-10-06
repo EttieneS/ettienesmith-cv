@@ -8,9 +8,9 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/add').post((req, res) => {
-  const type = req.body;
+  const type = req.body.type;
   console.log( type );
-  const newVehicle = new Vehicle(type);
+  const newVehicle = new Vehicle({type});
 
   newVehicle.save()
     .then(() => res.json('Vehicle added!'))
