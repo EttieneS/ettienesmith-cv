@@ -7,7 +7,7 @@ router.route('/').get((req, res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post(function (req, res){
+router.route('/create').post(function (req, res){
   const name = req.body.customer_name;
   console.log( name );
   const newCustomer = new Customer( { customer_name : name });

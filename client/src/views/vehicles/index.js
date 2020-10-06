@@ -1,4 +1,5 @@
-import VehiclesList from './VehiclesList.jsx';
-import VehiclesInsert from './VehiclesInsert.jsx';
+import VehiclesList from "./list";
+import EditVehicle from "./edit";
+import CreateVehicle from "./create";
 
-export { VehiclesList, VehiclesInsert };
+export { VehiclesList, CreateVehicle, EditVehicle };

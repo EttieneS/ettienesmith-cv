@@ -8,27 +8,27 @@ const Item = styled.div.attrs({className: 'collpase navbar-collapse',}) ``;
 
 class Links extends Component {
     render() {
-        return (
-            <React.Fragment>
-                <Link to="/" className="navbar-brand">
-                  Ettiene Smith's technical C.V.
+      return (
+        <React.Fragment>
+          <Link to="/" className="navbar-brand">
+            Ettiene Smith's technical C.V.
+          </Link>
+          <Collapse>
+            <List>
+              <Item>
+                <Link to="/vehicles" className="nav-link">
+                  Vehicles
                 </Link>
-                <Collapse>
-                    <List>
-                        <Item>
-                            <Link to="/vehicles/list" className="nav-link">
-                                Vehicles
-                            </Link>
-                        </Item>
-                        <Item>
-                            <Link to="/create" className="nav-link">
-                                Create Vehicle
-                            </Link>
-                        </Item>
-                    </List>
-                </Collapse>
-            </React.Fragment>
-        )
+              </Item>
+              <Item>
+                <Link to="/vehicles/create" className="nav-link">
+                  Create Vehicle
+                </Link>
+              </Item>
+            </List>
+          </Collapse>
+        </React.Fragment>
+      )
     }
 }
 
