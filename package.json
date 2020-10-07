@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "nodemon server/server.js",
-    "start": "node server/server.js",
+    "start": "node ./server/server.js",
     "check-coverage": "nyc report --check-coverage --lines 100",
     "lint": "eslint --ignore-path .gitignore .",
     "fix": "eslint --ignore-path .gitignore . --fix",

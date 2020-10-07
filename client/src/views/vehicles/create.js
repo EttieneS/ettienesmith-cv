@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import vehicles from '../../api/vehicles';
+import axios from 'axios';
 
 export default class CreateVehicle extends Component {
   constructor(props) {
@@ -8,8 +10,7 @@ export default class CreateVehicle extends Component {
     this.onSubmit = this.onSubmit.bind(this);
 
     this.state = {
-      type: '',
-      vehicles: []
+      type: ''
     }
   }
 
@@ -17,16 +18,22 @@ export default class CreateVehicle extends Component {
     this.setState({
       type: e.target.value
     });
+    console.log(this.state['type']);
+    console.log("Ma se kinnes");
   }
 
   onSubmit(e) {
     e.preventDefault();
-    var vehicle = {
-      type: this.state.type,
+    var newVehicle = {
+      type: this.state['type']
     };
+
     console.log("onsubmit....");
-    console.log("type " + this.state.type);
-    console.log("vehicle :" + vehicle);
+    console.log("type " + this.state['type']);
+
+    axios.post('http://localhose:5000/vehicles/create', newVehicle)
+      .then(res => console.log(res.data));
+
     window.location = '/vehicles/create';
   }
 
@@ -45,7 +52,7 @@ export default class CreateVehicle extends Component {
            />
        </div>
           <div className="form-group">
-            <input type="submit" value="Create a new vehicle" className="btn btn-primary" />
+            <input id="submit" type="submit" value="Create a new vehicle" className="btn btn-primary" />
           </div>
         </form>
       </div>

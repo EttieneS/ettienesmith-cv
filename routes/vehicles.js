@@ -8,9 +8,11 @@ router.route('/').get((req, res) => {
 });
 
 router.route('/create').post((req, res) => {
-  const type = req.body.type;
-  console.log( type );
-  const newVehicle = new Vehicle({type});
+  const type = req.body['type'];
+
+  const newVehicle = new Vehicle({
+    type: type
+  });
 
   newVehicle.save()
     .then(() => res.json('Vehicle added!'))
