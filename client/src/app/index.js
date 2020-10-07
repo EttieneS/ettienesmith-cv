@@ -9,19 +9,13 @@ import { CreateCustomer } from '../views/customers';
 
 function App() {
   return (
-
-
-
     <Router>
       <NavBar />
-
-
         <br/>
         <Route path="/vehicles" exact component={VehiclesList} />
         <Route path="/vehicles/edit/:id" component={EditVehicle} />
         <Route path="/vehicles/create" component={CreateVehicle} />
         <Route path="/customers/create" component={CreateCustomer} />
-
     </Router>
   )
 }
