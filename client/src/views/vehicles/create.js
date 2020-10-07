@@ -24,9 +24,10 @@ export default class CreateVehicle extends Component {
     var vehicle = {
       type: this.state.type,
     };
-
-    console.log(vehicle);
-    window.location = '/';
+    console.log("onsubmit....");
+    console.log("type " + this.state.type);
+    console.log("vehicle :" + vehicle);
+    window.location = '/vehicles/create';
   }
 
   render() {

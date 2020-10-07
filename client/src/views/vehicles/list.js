@@ -17,7 +17,7 @@ class UpdateMovie extends Component {
   }
 
   render() {
-    return <a class="btn btn-primary" onClick={this.updateUser}>Update</a>
+    return <a className="btn btn-primary" onClick={this.updateUser}>Update</a>
   }
 }
 
@@ -35,7 +35,7 @@ class DeleteMovie extends Component {
 
 
   render() {
-    return <a class='btn btn-danger' type='button' onClick={this.deleteUser}>Delete</a>
+    return <a className='btn btn-danger' type='button' onClick={this.deleteUser}>Delete</a>
   }
 }
 

@@ -1,6 +1,3 @@
-import Links from './Links.jsx';
-import Logo from './Logo.jsx';
-import NavBar from './NavBar.jsx';
-import BootstrapNavbar from './BootstrapNavbar';
+import NavBar from './NavBar';
 
-export {  NavBar, Links, Logo, BootstrapNavbar };
+export {  NavBar };
