@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ReactTable from 'react-table-6';
+import {  Link } from 'react-router-dom';
 import vehicles from '../../api/vehicles';
 import styled from 'styled-components';
 import 'react-table-6/react-table.css';
@@ -9,7 +10,7 @@ const Wrapper = styled.div(`padding: 0 40px 40px 40px;`);
 const Update = styled.div(`color: #ef9b0f; cursor: pointer;`);
 const Delete = styled.div(`color: #ff0000; cursor: pointer;`);
 
-class UpdateMovie extends Component {
+class UpdateVehicle extends Component {
   updateUser = event => {
     event.preventDefault()
 
@@ -22,33 +23,43 @@ class UpdateMovie extends Component {
 }
 
 
-class DeleteMovie extends Component {
-  deleteUser = event => {
+class DeleteVehicle extends Component {
+  deleteVehicle = event => {
     event.preventDefault();
     if (
-      window.confirm(`Do you want to delete the movie ${this.props.id} permanently?`,)
+      window.confirm(`Do you want to delete the vehicle ${this.props.id} permanently?`,)
     ) {
-      vehicles.deleteMovieById(this.props.id);
+
+      //vehicles.deleteById(this.props.id);
+
+      axios.delete(`http://localhost:5000/vehicles/delete/_id=${this.props.id}`)
+        .then(response => {
+          this.setState({ vehicles: response.data });
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+
       window.location.reload();
     }
   }
 
-
   render() {
-    return <a className='btn btn-danger' type='button' onClick={this.deleteUser}>Delete</a>
+    return <a className='btn btn-danger' type='button' onClick={this.deleteVehicle}>Delete</a>
   }
 }
-
-
 export default class VehiclesList extends Component {
   constructor(props) {
     super(props)
+
     this.state = {
         vehicles: [],
         columns: [],
         isLoading: false,
     }
-  }
+
+    // this.deleteVehicle = this.deleteVehicle.bind(this);
+}
 
   componentDidMount() {
     axios.get('http://localhost:5000/vehicles')
@@ -57,8 +68,9 @@ export default class VehiclesList extends Component {
       })
       .catch((error) => {
         console.log(error);
-      })
+      });
   }
+
 
   //componentDidMount = async() => {
     // this.setState({
@@ -98,7 +110,7 @@ export default class VehiclesList extends Component {
         Cell: function(props) {
           return (
             <span>
-                <UpdateMovie id={props.original._id} />
+                <UpdateVehicle id={props.original._id} />
             </span>
           )
         },
@@ -109,7 +121,7 @@ export default class VehiclesList extends Component {
         Cell: function(props) {
           return (
               <span>
-                  <DeleteMovie id={props.original._id} />
+                  <DeleteVehicle id={props.original._id} />
               </span>
           )
         },

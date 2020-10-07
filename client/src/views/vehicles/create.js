@@ -18,9 +18,8 @@ export default class CreateVehicle extends Component {
     this.setState({
       type: e.target.value
     });
-    var newVehicle = {
-      type: this.state['type']
-    };
+
+    console.log(this.state['type']);
   }
 
   onSubmit(e) {
@@ -39,7 +38,7 @@ export default class CreateVehicle extends Component {
     return (
       <div>
         <h3>Create New Vehicle</h3>
-        <form onSubmit={this.onSubmit}>
+        <form>
           <div className="form-group">
            <label>Vehicle Type: </label>
            <input  type="text"
@@ -50,7 +49,7 @@ export default class CreateVehicle extends Component {
              />
           </div>
           <div className="form-group">
-            <input type="submit" value="Create a new vehicle" className="btn btn-primary" onClick={this.onSubmit} />
+            <input id="submit" type="submit" value="Create a new vehicle" className="btn btn-primary" onClick={this.onSubmit}/>
           </div>
         </form>
       </div>
