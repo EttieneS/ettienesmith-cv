@@ -26,7 +26,7 @@ router.route('/:id').get((req, res) => {
 });
 
 router.route('/delete/_id=:id').delete((req, res) => {
-  Vehicle.findOneAndDelete(req.params.id)
+  Vehicle.findByIdAndRemove(req.params.id)
     .then(() => res.json('Vehicle deleted.'))
     .catch(err => res.status(400).json('Error: ' + err));
 });

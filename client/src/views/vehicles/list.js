@@ -14,7 +14,7 @@ class UpdateVehicle extends Component {
   updateUser = event => {
     event.preventDefault()
 
-    window.location.href = `/movies/update/${this.props.id}`
+    window.location.href = `/vehicles/edit/_id=$${this.props.id}`;
   }
 
   render() {
@@ -29,9 +29,6 @@ class DeleteVehicle extends Component {
     if (
       window.confirm(`Do you want to delete the vehicle ${this.props.id} permanently?`,)
     ) {
-
-      //vehicles.deleteById(this.props.id);
-
       axios.delete(`http://localhost:5000/vehicles/delete/_id=${this.props.id}`)
         .then(response => {
           this.setState({ vehicles: response.data });
